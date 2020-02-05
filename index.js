@@ -7,7 +7,7 @@ const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.set('secretKey', 'nodeRestApi'); // jwt secret token
 // connection to mongodb
