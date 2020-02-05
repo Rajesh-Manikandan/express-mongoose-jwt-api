@@ -6,6 +6,7 @@ const users = require('./routes/users');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
+require('dotenv').config();
 
 app.use(bodyParser.json());
 
@@ -59,6 +60,8 @@ app.use(function(err, req, res, next) {
   else res.status(500).json({ message: 'Something looks wrong :( !!!' });
 });
 
-app.listen(5000, function() {
-  console.log('Node server listening on port 5000');
+const port = process.env.PORT || 5000;
+
+app.listen(port, function() {
+  console.log('Node server listening on port ' + port);
 });
